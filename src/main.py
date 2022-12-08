@@ -5,6 +5,14 @@ from pandas import json_normalize
 import pandas as pd
 import json
 
+# Standard plotly imports
+import plotly
+import chart_studio.plotly as py
+import plotly.graph_objs as go
+from plotly.offline import iplot, init_notebook_mode
+import cufflinks
+cufflinks.go_offline(connected=True)
+init_notebook_mode(connected=True)
 
 
 def data_retreaval():
@@ -65,9 +73,10 @@ def msTotal():
     pass
 
 def ploter():
-    pass
+    global df_total
+    df_total["msPlayed"].iplot(kind='hist', xTitle='ms', yTitle='count', title='songms')
 
 if __name__ == "__main__":
     data_retreaval()
     data_management()
-    msSong()
+    ploter()
