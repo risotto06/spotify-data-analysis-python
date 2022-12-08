@@ -5,6 +5,8 @@ from pandas import json_normalize
 import pandas as pd
 import json
 
+
+
 def data_retreaval():
     global initiated_data_retreaval
     initiated_data_retreaval = "dasda"
@@ -49,7 +51,6 @@ def msSong():
         initiated_data_management
     except NameError:
         data_management()
-    data_management()
 
     df_total = df_total.drop("endTime", axis=1)
     df_total = df_total.groupby(['trackName', 'artistName'], as_index=False)['msPlayed'].sum()
